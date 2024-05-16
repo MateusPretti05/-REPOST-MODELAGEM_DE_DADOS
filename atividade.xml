@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: https://sql.toad.cz/ -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+	 	<type label="INT" length="0" sql="INT" quote=""/>
+		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
+
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+	</group>
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+		<type label="Bit" length="0" sql="bit" quote=""/>
+	</group>
+</datatypes><table x="531" y="401" name="users">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="email" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's email address</comment>
+</row>
+<row name="password" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's encrypted password</comment>
+</row>
+<row name="researcher" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>An id that indicates whether the user is a researcher</comment>
+</row>
+<row name="country" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>User location information (country)</comment>
+</row>
+<row name="state" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>User location information (state)</comment>
+</row>
+<row name="city" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>User location information (city)</comment>
+</row>
+<row name="neighborhood" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>User location information (neighborhod)</comment>
+</row>
+<key type="PRIMARY" name="1">
+<part>id</part>
+</key>
+</table>
+<table x="218.55999755859375" y="24" name="user_forms">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="id_users" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><relation table="users" row="id" />
+<comment>A foreign connection key to the users table</comment>
+</row>
+<row name="age" null="1" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>This is the user's age</comment>
+</row>
+<row name="gender" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>With this option, the user can enter their gender</comment>
+</row>
+<row name="education" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>This option allows the user to enter their level of education.</comment>
+</row>
+<row name="home_type" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>With this option, the user can inform the type of housing they live in (house, apartment, etc.)</comment>
+</row>
+<row name="home_members" null="1" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>With this option, the user can inform the number of people who live with him (if he does)</comment>
+</row>
+<row name="family_income" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>With this option, the user can inform the family income (those who live next to them)</comment>
+</row>
+<row name="choice" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>The user will choose which path to follow from the following options: has_dog, had_dog, want_to, dont_want</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="826.1199951171875" y="1020" name="contact_user_forms">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="id_users" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><relation table="users" row="id" />
+<comment>A foreign connection key to the users table</comment>
+</row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>This is the user's name (in case he wants to inform it)</comment>
+</row>
+<row name="social_name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>This is what the user would like to be called (if he wants to inform)</comment>
+</row>
+<row name="phone" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>This is the user's phone number (in case they want to inform you)</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="50" y="300" name="has_dog_forms">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="id_users" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><relation table="users" row="id" />
+<comment>A foreign connection key to the users table</comment>
+</row>
+<row name="name_dog" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>That's the dog's name</comment>
+</row>
+<row name="gender" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>Here the user can enter the gender of their dog</comment>
+</row>
+<row name="owner" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>indicates whether or not the dog is the owner</comment>
+</row>
+<row name="neutered" null="0" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>'NULL'</default><comment>indicates whether the dog is neutered</comment>
+</row>
+<row name="how_long" null="0" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>indicates how long the user has owned the dog</comment>
+</row>
+<row name="is_first" null="0" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>'NULL'</default><comment>indicates whether it is the first dog the owner has had</comment>
+</row>
+<row name="id_other_pets" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><relation table="other_pets" row="id" />
+<comment>foreign connection key to other pets table</comment>
+</row>
+<row name="age_dog" null="0" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>this is the age of the dog</comment>
+</row>
+<row name="breed_dog" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>this is the breed of dog</comment>
+</row>
+<row name="where_got" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>indicates the location where the user purchased the dog</comment>
+</row>
+<row name="payed" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates whether the user paid for the dog</comment>
+</row>
+<row name="age_got" null="0" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>indicates how old the dog was when the owner acquired it</comment>
+</row>
+<row name="personality_dog" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(1000)</datatype>
+<default>'NULL'</default><comment>tells what the dog's personality is</comment>
+</row>
+<row name="id_why_dog" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><relation table="why_dog" row="id" />
+<comment>indicates a foreign key connecting to the why dog ​​table</comment>
+</row>
+<row name="involved_people" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>People involved in this decision to own a dog</comment>
+</row>
+<row name="veterinary_last_years" null="1" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>Indicates the number of visits the dog has made to the veterinarian in recent years</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="964" y="199" name="had_dog_forms">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="id_users" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><relation table="users" row="id" />
+<comment>A foreign connection key to the users table</comment>
+</row>
+<row name="name_dog" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>That's the dog's name</comment>
+</row>
+<row name="how_long_with" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>indicates how long the user has owned the dog</comment>
+</row>
+<row name="is_first" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether it is the first dog the owner has had</comment>
+</row>
+<row name="other_pets" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user has other animals besides the dog</comment>
+</row>
+<row name="id_other_pets" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><relation table="other_pets" row="id" />
+<comment>A foreign connection key to the other_pets table</comment>
+</row>
+<row name="age_got" null="0" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>indicates how old the dog was when the owner acquired it</comment>
+</row>
+<row name="neutered" null="1" autoincrement="0">
+<datatype>BINARY</datatype>
+<default>NULL</default><comment>indicates whether the dog was neutered</comment>
+</row>
+<row name="months_neutered" null="0" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>indicates how old the dog was when it was neutered</comment>
+</row>
+<row name="breed" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>this is the breed of dog</comment>
+</row>
+<row name="where_got" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>indicates the location where the user purchased the dog</comment>
+</row>
+<row name="payed" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>indicates whether the user paid for the dog</comment>
+</row>
+<row name="id_why_dog" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><relation table="why_dog" row="id" />
+<comment>A foreign connection key to the why_dog table</comment>
+</row>
+<row name="who_chose_name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates who chose the dog's name</comment>
+</row>
+<row name="what_liked_most" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(1000)</datatype>
+<default>'NULL'</default><comment>indicates what the user liked most about the dog</comment>
+</row>
+<row name="veterinary_visits" null="1" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>Indicates the number of visits the dog has made to the veterinarian in recent years</comment>
+</row>
+<row name="veterinary_visits_reasons" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT(1000)</datatype>
+<default>NULL</default><comment>indicate the reasons why you took the dog to the vet</comment>
+</row>
+<row name="stop_living_with" null="0" autoincrement="0">
+<datatype>DATE(255)</datatype>
+<default>'NULL'</default><comment>indicates when the user stopped having this dog</comment>
+</row>
+<row name="another_dog" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user would like to have another dog</comment>
+</row>
+<row name="why_have_another_dog" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT(1000)</datatype>
+<default>NULL</default><comment>Indicates why you would own another dog</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="202" y="1004" name="never_had_forms">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="id_users" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><relation table="users" row="id" />
+<comment>A foreign connection key to the users table</comment>
+</row>
+<row name="id_why_have_dog" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><relation table="why_have_dog" row="id" />
+<comment>A foreign connection key to the why_have dog table</comment>
+</row>
+<row name="buy" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user wants to buy a dog</comment>
+</row>
+<row name="adopt" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user wants to adopt a dog</comment>
+</row>
+<row name="when_interlude" null="1" autoincrement="0">
+<datatype>DATE(255)</datatype>
+<default>NULL</default><comment>indicates whether the user already has a date in mind to acquire this dog</comment>
+</row>
+<row name="expected_personality" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT(1000)</datatype>
+<default>NULL</default><comment>Here the user can say what personality he expects from the dog he will acquire</comment>
+</row>
+<row name="dog_expenses" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user has already researched the expenses that the dog will bring</comment>
+</row>
+<row name="dog_expenses_value" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>here if the user did research on expenses, he will be able to tell the value of these</comment>
+</row>
+<row name="dog_size" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates the size of dog the user wants</comment>
+</row>
+<row name="dog_fur" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates the dog's coat he wants</comment>
+</row>
+<row name="dog_color" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates the color of dog the user wants to have</comment>
+</row>
+<row name="dog_gender" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates what kind of dog the user wants</comment>
+</row>
+<row name="dog_age" null="1" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>indicates the age of the dog the user wants to have</comment>
+</row>
+<row name="dog_breed" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates the breed of dog the user wants to have</comment>
+</row>
+<row name="dog_name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates the name the user intends to give to this dog</comment>
+</row>
+<row name="dog_why_name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates the reason why you chose that name for the dog</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="594" y="31" name="why_dog">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="child_company" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the dog is meant to keep children company</comment>
+</row>
+<row name="teach_responsibility" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the dog is to teach your children about responsibility</comment>
+</row>
+<row name="adult_company" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the dog is for adult companionship</comment>
+</row>
+<row name="appearance" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user chose that dog based on its appearance</comment>
+</row>
+<row name="dog_company" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user wants that dog to keep another dog company</comment>
+</row>
+<row name="friends" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicate whether you prefer dogs based on the influence of friends</comment>
+</row>
+<row name="protection" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicate whether you prefer dogs to protect your home</comment>
+</row>
+<row name="help" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicate whether you prefer a dog to help with tasks as a guide</comment>
+</row>
+<row name="gift" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether you received the dog as a gift</comment>
+</row>
+<row name="other" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT(255)</datatype>
+<default>NULL</default><comment>indicate whether you have other reasons for choosing a dog</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="519" y="846" name="why_have_dog">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="child_company" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the dog is meant to keep children company</comment>
+</row>
+<row name="teach_responsability" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the dog is to teach your children about responsibility</comment>
+</row>
+<row name="adult_company" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the dog is for adult companionship</comment>
+</row>
+<row name="parents_had" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user wanted to have a dog because their parents also had one</comment>
+</row>
+<row name="friends_have" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user wanted to have a dog because their friends also had one</comment>
+</row>
+<row name="protection" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user wanted to have a dog to protect themselves and their home</comment>
+</row>
+<row name="tv" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default><comment>indicates whether the user wanted to have a dog after seeing something related on TV</comment>
+</row>
+<row name="other" null="1" autoincrement="0">
+<datatype>BINARY(255)</datatype>
+<default>NULL</default><comment>indicates whether the user has other reasons for having a dog</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="775.9999923706055" y="705" name="other_pets">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="cats" null="1" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>Indicate, if you have, how many cats you have</comment>
+</row>
+<row name="dogs" null="1" autoincrement="0">
+<datatype>INTEGER(255)</datatype>
+<default>NULL</default><comment>Indicate, if you have, how many dogs besides the one registered you have</comment>
+</row>
+<row name="other" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT(1000)</datatype>
+<default>NULL</default><comment>Indicate, if any, how many and which other animals you have</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="92.99999237060547" y="799.9999694824219" name="dont_want_forms">
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><comment>This is the user's unique identifier</comment>
+</row>
+<row name="id_users" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>'NULL'</default><relation table="users" row="id" />
+<comment>A foreign connection key to the users table</comment>
+</row>
+<row name="why_dont_have" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT(1000)</datatype>
+<default>NULL</default><comment>Indicates the user's reason for not wanting a dog</comment>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>
